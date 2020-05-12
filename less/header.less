@@ -7,11 +7,22 @@
     .site-branding {
         background-color: @light-blue;
         margin:0;
+        padding: 8px 0;
         .site-title {
-            svg * {
-                fill:@white;
+
+            a {
+                display: flex;
+                align-items: center;
+                text-decoration:none;
+               
             }
 
+        
+            svg * {
+                fill:@white;
+                transform: scale(0.75);
+            }
+           
         }
     }
 
@@ -32,9 +43,13 @@
 
             &.current-menu-item, &:hover {
                 a {
+                    transition: color 0.4s;
                     color:@hightlight;
                    
                 }
+            }
+            &:hover a {
+                text-decoration: none;
             }
             &.current-menu-item {
                 background-color: @dark-blue;
@@ -49,22 +64,48 @@
 
 @media only screen and (max-width: @small) { 
     .site-header {
+
         .site-branding {
+
+            position: absolute;
+            width: 100%;
+            padding: 10px 0;
+
             .site-title {
                 text-align: center;
-                span {
+               
+                a {
+                    position: relative;
+                    display: block;
+                    width: fit-content;
+                    margin: 0 auto;
+                    z-index: 2;
+                }
+                
+                svg {
+                    display:flex;
+                }
+                
+                .title {
                     display: none;
                 }
             }
         }
+
         .main-navigation {
-            
+            z-index: 0;
+            position: relative;
+            background-color: transparent;
+           
             .container {
                 padding: 0;
             }
 
             .menu-toggle {
+                background-color: @light-blue;
                 padding: 20px;
+                border:none;
+
                 svg {
                     fill:@white;
                 }
@@ -76,20 +117,26 @@
                 .open {
                     display: block;
                 }
+
+            
             }
            
 
             li {
                 display:block;
                 width: 100%;
-
+                background-color: @blue;
                 &:first-child a {
                     padding-left:20px;
                 }
     
             }
             &.toggled {
-           
+
+                .menu-toggle {
+                    background-color: @blue;
+                }
+
                 .close {
                     display: block;
                 }

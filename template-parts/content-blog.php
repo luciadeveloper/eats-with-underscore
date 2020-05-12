@@ -11,9 +11,10 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="article-image-wrapper">
-		<a href="<?php esc_url( get_permalink()) ?>">   <!-- el link necesita un texto-->
+		<a href="<?php echo get_permalink() ?>">   <!-- el link necesita un texto-->
 			<picture>
 				<?php the_post_thumbnail('blog-thumbnail');?>
+				<span class="screen-reader-text"><?php the_title()?> </span>
 			</picture>
 		</a>
 	</div>
@@ -23,7 +24,7 @@
 				<time><?php the_date('F j, Y'); ?></time>
 			</div><!-- .entry-meta -->
 			<h2 class="entry-title">
-				<a href="<?php esc_url( get_permalink() ) ?>" rel="bookmark">	
+				<a href="<?php echo get_permalink() ?>" rel="bookmark">	
 					<?php the_title()?>
 				</a>
 			</h2>

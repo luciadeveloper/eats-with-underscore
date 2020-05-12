@@ -3,12 +3,42 @@
     
     article {
         margin:20px 0;
+       
         a {
             color:@secondary;
+       
             &.read-more {
+                display: flex;
+       
                 svg {
                     fill:@secondary;
+                    transition: margin-left 0.2s;
                 }
+
+                &:hover svg {
+                    margin-left:3px;
+                    transition: margin-left 0.2s;
+                }
+            }
+       
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        .article-image-wrapper {
+            a {
+                line-height: 0;
+                &:hover img {
+                    opacity: 0.95;
+                }
+            }
+        }
+
+        .entry-meta {
+            time {
+                color: @gray;
+                margin-bottom: 5px;
+                display: block;
             }
         }
     }
