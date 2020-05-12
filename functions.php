@@ -104,6 +104,9 @@ if ( ! function_exists( 'eats_setup' ) ) :
 endif;
 add_action( 'after_setup_theme', 'eats_setup' );
 
+
+add_image_size('blog-thumbnail', 1000, 600);
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *

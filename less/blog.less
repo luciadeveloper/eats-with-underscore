@@ -1,0 +1,43 @@
+
+ .blog {
+    
+    article {
+        margin:20px 0;
+        a {
+            color:@secondary;
+            &.read-more {
+
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: @small) {
+
+    .blog {
+
+        article {
+            display:flex;
+        
+            .article-image-wrapper, .article-content-wrapper {
+                display: flex;
+                flex-direction: column;
+                flex-basis: 0;
+                padding: 0;
+            }
+            
+            .article-image-wrapper {
+                flex-grow: 2;
+            }
+            
+            .article-content-wrapper {
+                flex-grow: 1;
+                padding:20px;
+            }
+           
+            
+        }
+    }
+
+}
