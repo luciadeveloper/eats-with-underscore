@@ -1,14 +1,108 @@
 .site-header {
-   
+
     a {
         color:@white;
     }
+
     .site-branding {
+        background-color: @light-blue;
+        margin:0;
+        .site-title {
+            svg * {
+                fill:@white;
+            }
+
+        }
+    }
+
+    .main-navigation {
         background-color: @blue;
         margin:0;
-    }
-    .main-navigation {
-        background-color: @dark-blue;
-        margin:0;
+        
+        li {
+           
+            a {
+                padding: 15px 20px;
+                text-decoration: underline;
+            }
+           
+            &:first-child a {
+                padding-left:0;
+            }
+
+            &.current-menu-item, &:hover {
+                a {
+                    color:@hightlight;
+                   
+                }
+            }
+            &.current-menu-item {
+                background-color: @dark-blue;
+            }
+
+        }
+
+      
     }
 }
+
+
+@media only screen and (max-width: @small) { 
+    .site-header {
+        .site-branding {
+            .site-title {
+                text-align: center;
+                span {
+                    display: none;
+                }
+            }
+        }
+        .main-navigation {
+            
+            .container {
+                padding: 0;
+            }
+
+            .menu-toggle {
+                padding: 20px;
+                svg {
+                    fill:@white;
+                }
+
+                .close {
+                    display: none;
+                }
+                
+                .open {
+                    display: block;
+                }
+            }
+           
+
+            li {
+                display:block;
+                width: 100%;
+
+                &:first-child a {
+                    padding-left:20px;
+                }
+    
+            }
+            &.toggled {
+           
+                .close {
+                    display: block;
+                }
+        
+                .open {
+                    display: none;
+                }
+                
+            }
+        }
+        
+    }
+    
+   
+}
+

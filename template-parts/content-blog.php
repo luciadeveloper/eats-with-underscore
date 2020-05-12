@@ -36,6 +36,8 @@
 		</div><!-- .entry-content -->
 		<a href="<?php esc_url( get_permalink() ) ?>" rel="bookmark" class="read-more">	
 			<?php _e('Read more', 'eats')?>
+			<span class="screen-reader-text"><?php the_title()?> </span>
+			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z"/></svg>
 		</a>
 	</div>
 </article><!-- #post-<?php the_ID(); ?> -->
