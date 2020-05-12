@@ -782,7 +782,7 @@ object {
   -o-transition: margin-left 0.2s;
   transition: margin-left 0.2s;
 }
-.blog article a:hover {
+.blog article .entry-title a:hover {
   text-decoration: none;
 }
 .blog article .article-image-wrapper a {

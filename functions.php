@@ -71,41 +71,17 @@ if ( ! function_exists( 'eats_setup' ) ) :
 			)
 		);
 
-		// Set up the WordPress core custom background feature.
-		add_theme_support(
-			'custom-background',
-			apply_filters(
-				'eats_custom_background_args',
-				array(
-					'default-color' => 'ffffff',
-					'default-image' => '',
-				)
-			)
-		);
-
+		
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
-		/**
-		 * Add support for core custom logo.
-		 *
-		 * @link https://codex.wordpress.org/Theme_Logo
-		 */
-		add_theme_support(
-			'custom-logo',
-			array(
-				'height'      => 250,
-				'width'       => 250,
-				'flex-width'  => true,
-				'flex-height' => true,
-			)
-		);
+		
 	}
 endif;
 add_action( 'after_setup_theme', 'eats_setup' );
 
 
-add_image_size('blog-thumbnail', 1000, 600);
+add_image_size('blog-thumbnail', 680, 380);
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
