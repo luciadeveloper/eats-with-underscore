@@ -7,9 +7,10 @@
             color:@secondary;
        
             &.read-more {
+                .focus-border();
                 display: flex;
-                border:4px dashed transparent;
                 width: fit-content;
+              
                 &:focus {
                     border-color:@secondary;
                     outline:none;
@@ -27,8 +28,7 @@
             }
            
         }
-
-      
+ 
         .article-image-wrapper {
            
             a {
@@ -54,8 +54,8 @@
             
                 time {
                     color: @gray;
-                    margin-bottom: 5px;
                     display: block;
+                    margin-bottom: 5px;
                 }
             }
         }
@@ -70,12 +70,12 @@
 
         article {
             display:flex;
-        
+            
             .article-image-wrapper, .article-content-wrapper {
-                display: flex;
-                flex-direction: column;
                 flex-basis: 0;
+                flex-direction: column;
                 padding: 0;
+                flex: 1 0 0;
             }
             
             .article-image-wrapper {
@@ -84,22 +84,21 @@
                     height: 100%;
                 
                     picture {
-                    
-                        display: flex;
-                        justify-content: left;
-                        position: relative;
-                        height: 100%;
                         align-items: flex-start;
+                        display: flex;
+                        height: 100%;
+                        justify-content: left;
                         min-height:380px;
+                        position: relative;
                     
                         img {
-                            position: absolute;
-                            top: 0;
-                            left: 0;
                             height: 100%;
-                            width: 100%;
+                            left: 0;
                             object-fit: cover;
                             object-position: center;
+                            position: absolute;
+                            top: 0;
+                            width: 100%;
                         }
                     }
                 }

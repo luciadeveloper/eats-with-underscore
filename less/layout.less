@@ -1,12 +1,16 @@
 .container {
-    max-width: @container;
+    box-sizing: border-box;  
     margin: auto;
+    max-width: @container;
     padding-left: @padding;
     padding-right: @padding;
-    box-sizing: border-box;  
 }
 
 .flex {
     display: flex;
     justify-content: space-between;
+}
+
+.site-main {
+    display:block;
 }

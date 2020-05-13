@@ -110,3 +110,12 @@
 		}
 	}( container ) );
 }() );
+
+
+//close menu when Esc key is pressed. 
+
+document.addEventListener('keyup', (event) => {
+	if(event.keyCode == 27) {
+		document.getElementById('site-navigation').classList.remove('toggled');
+	}
+});
