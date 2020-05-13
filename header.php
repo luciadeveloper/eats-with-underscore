@@ -39,7 +39,7 @@
 				</div>
 			</div><!-- .site-branding -->
 
-			<nav id="site-navigation" class="main-navigation">
+			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<div class="container">
 					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
 						<span class="screen-reader-text"> <?php _e('Primary Menu', 'eats') ?> </span>

@@ -6,6 +6,8 @@
   margin: auto;
   padding-left: 20px;
   padding-right: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .flex {
   display: -webkit-box;
@@ -453,15 +455,10 @@ table {
 /*--------------------------------------------------------------
 ## Links
 --------------------------------------------------------------*/
-a:focus {
-  outline: none;
-}
-a:hover,
-a:active {
-  outline: 0;
-}
-input:focus {
-  outline: none;
+:focus,
+a:focus,
+.focus {
+  outline-color: #CC4B00;
 }
 /*--------------------------------------------------------------
 ## Menus
@@ -866,18 +863,28 @@ h2 {
   color: #fff;
 }
 .site-header .site-branding {
+  position: absolute;
+  width: 100%;
+  padding: 10px 0;
   background-color: #006EF5;
   margin: 0;
-  padding: 8px 0;
+}
+.site-header .site-branding .site-title {
+  text-align: center;
 }
 .site-header .site-branding .site-title a {
+  position: relative;
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  z-index: 2;
+}
+.site-header .site-branding .site-title svg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-decoration: none;
 }
 .site-header .site-branding .site-title svg * {
   fill: #fff;
@@ -885,16 +892,20 @@ h2 {
       -ms-transform: scale(0.75);
           transform: scale(0.75);
 }
+.site-header .site-branding .site-title .title {
+  display: none;
+}
 .site-header .main-navigation {
-  background-color: #004EAE;
+  z-index: 0;
+  position: relative;
   margin: 0;
+}
+.site-header .main-navigation .container {
+  padding: 0;
 }
 .site-header .main-navigation li a {
   padding: 15px 20px;
   text-decoration: underline;
-}
-.site-header .main-navigation li:first-child a {
-  padding-left: 0;
 }
 .site-header .main-navigation li.current-menu-item a,
 .site-header .main-navigation li:hover a {
@@ -909,69 +920,78 @@ h2 {
 .site-header .main-navigation li.current-menu-item {
   background-color: #013371;
 }
-@media only screen and (max-width: 600px) {
+.site-header .main-navigation .menu-toggle {
+  background-color: #006EF5;
+  padding: 20px;
+  border: none;
+}
+.site-header .main-navigation .menu-toggle svg {
+  fill: #fff;
+}
+.site-header .main-navigation .menu-toggle .close {
+  display: none;
+}
+.site-header .main-navigation .menu-toggle .open {
+  display: block;
+}
+.site-header .main-navigation li {
+  display: block;
+  width: 100%;
+  background-color: #004EAE;
+  border-bottom: 1px solid #fff;
+}
+.site-header .main-navigation li:first-child a {
+  padding-left: 20px;
+}
+.site-header .main-navigation.toggled .menu-toggle {
+  background-color: #004EAE;
+}
+.site-header .main-navigation.toggled .close {
+  display: block;
+}
+.site-header .main-navigation.toggled .open {
+  display: none;
+}
+@media only screen and (min-width: 600px) {
   .site-header .site-branding {
-    position: absolute;
-    width: 100%;
-    padding: 10px 0;
+    position: relative;
+    padding: 8px 0;
   }
   .site-header .site-branding .site-title {
-    text-align: center;
+    text-align: left;
   }
   .site-header .site-branding .site-title a {
-    position: relative;
-    display: block;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    margin: 0 auto;
-    z-index: 2;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
-  .site-header .site-branding .site-title svg {
+  .site-header .site-branding .site-title .title {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
-  .site-header .site-branding .site-title .title {
-    display: none;
-  }
   .site-header .main-navigation {
-    z-index: 0;
-    position: relative;
-    background-color: transparent;
+    background-color: #004EAE;
   }
   .site-header .main-navigation .container {
-    padding: 0;
+    padding: 0 20px;
   }
-  .site-header .main-navigation .menu-toggle {
-    background-color: #006EF5;
-    padding: 20px;
-    border: none;
+  .site-header .main-navigation .container li {
+    display: inline-block;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    border-bottom: none;
   }
-  .site-header .main-navigation .menu-toggle svg {
-    fill: #fff;
+  .site-header .main-navigation .container li:first-child a {
+    padding-left: 0;
   }
-  .site-header .main-navigation .menu-toggle .close {
-    display: none;
-  }
-  .site-header .main-navigation .menu-toggle .open {
-    display: block;
-  }
-  .site-header .main-navigation li {
-    display: block;
-    width: 100%;
-    background-color: #004EAE;
-  }
-  .site-header .main-navigation li:first-child a {
-    padding-left: 20px;
-  }
-  .site-header .main-navigation.toggled .menu-toggle {
-    background-color: #004EAE;
-  }
-  .site-header .main-navigation.toggled .close {
-    display: block;
-  }
-  .site-header .main-navigation.toggled .open {
-    display: none;
+  .site-header .main-navigation .container li a {
+    z-index: 1;
+    position: relative;
   }
 }

@@ -15,7 +15,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main container">
+	<main id="primary" class="site-main container"  role="main">
 
 		<?php
 		if ( have_posts() ) :
@@ -42,3 +42,4 @@ get_header();
 <?php
 
 get_footer();
+?>

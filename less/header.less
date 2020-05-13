@@ -1,44 +1,55 @@
 .site-header {
-
     a {
         color:@white;
     }
 
     .site-branding {
+
+        position: absolute;
+        width: 100%;
+        padding: 10px 0;
         background-color: @light-blue;
         margin:0;
-        padding: 8px 0;
-        .site-title {
-
-            a {
-                display: flex;
-                align-items: center;
-                text-decoration:none;
-               
-            }
-
         
-            svg * {
-                fill:@white;
-                transform: scale(0.75);
+        .site-title {
+            text-align: center;
+            
+            a {
+                position: relative;
+                display: block;
+                width: fit-content;
+                margin: 0 auto;
+                z-index: 2;
             }
-           
+            
+            svg {
+                display:flex;
+                * {
+                    fill:@white;
+                    transform: scale(0.75);
+                }
+            }
+            
+            .title {
+                display: none;
+            }
         }
     }
 
     .main-navigation {
-        background-color: @blue;
+        z-index: 0;
+        position: relative;
         margin:0;
-        
+
+        .container {
+            padding: 0;
+        }
+
         li {
-           
             a {
                 padding: 15px 20px;
                 text-decoration: underline;
-            }
-           
-            &:first-child a {
-                padding-left:0;
+                
             }
 
             &.current-menu-item, &:hover {
@@ -51,105 +62,112 @@
             &:hover a {
                 text-decoration: none;
             }
+
             &.current-menu-item {
                 background-color: @dark-blue;
+            }
+        }
+
+        .menu-toggle {
+            background-color: @light-blue;
+            padding: 20px;
+            border:none;
+
+            svg {
+                fill:@white;
+            }
+
+            .close {
+                display: none;
+            }
+            
+            .open {
+                display: block;
+            }
+
+        
+        }
+        
+        li {
+            display:block;
+            width: 100%;
+            background-color: @blue;
+            border-bottom: 1px solid @white;
+            &:first-child a {
+                padding-left: 20px;
             }
 
         }
 
-      
+        &.toggled {
+
+            .menu-toggle {
+                background-color: @blue;
+            }
+
+            .close {
+                display: block;
+            }
+    
+            .open {
+                display: none;
+            }
+            
+        }
     }
+    
 }
+    
+   
 
 
-@media only screen and (max-width: @small) { 
+
+@media only screen and (min-width: @small) { 
+   
     .site-header {
 
         .site-branding {
-
-            position: absolute;
-            width: 100%;
-            padding: 10px 0;
+            position: relative;
+            padding: 8px 0;
 
             .site-title {
-                text-align: center;
-               
+                text-align: left;
+            
                 a {
-                    position: relative;
-                    display: block;
-                    width: fit-content;
-                    margin: 0 auto;
-                    z-index: 2;
+                    display: flex;
+                    width: 100%;
+                    align-items: center;
                 }
-                
-                svg {
-                    display:flex;
-                }
-                
+            
                 .title {
-                    display: none;
+                    display: flex;
                 }
             }
         }
 
         .main-navigation {
-            z-index: 0;
-            position: relative;
-            background-color: transparent;
+            background-color: @blue;
            
             .container {
-                padding: 0;
-            }
-
-            .menu-toggle {
-                background-color: @light-blue;
-                padding: 20px;
-                border:none;
-
-                svg {
-                    fill:@white;
-                }
-
-                .close {
-                    display: none;
-                }
-                
-                .open {
-                    display: block;
-                }
-
+                padding: 0 @padding;
             
-            }
-           
+                li {
+                    display: inline-block;
+                    width: fit-content;
+                    border-bottom: none;
+                   
+                    &:first-child a {
+                        padding-left: 0;
+                    }
 
-            li {
-                display:block;
-                width: 100%;
-                background-color: @blue;
-                &:first-child a {
-                    padding-left:20px;
+                    a {
+                        z-index: 1;
+                        position: relative;
+                    }
+                    
                 }
-    
-            }
-            &.toggled {
-
-                .menu-toggle {
-                    background-color: @blue;
-                }
-
-                .close {
-                    display: block;
-                }
-        
-                .open {
-                    display: none;
-                }
-                
             }
         }
         
     }
-    
-   
 }
-

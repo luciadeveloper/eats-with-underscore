@@ -24,7 +24,7 @@
 				<time><?php the_date('F j, Y'); ?></time>
 			</div><!-- .entry-meta -->
 			<h2 class="entry-title">
-				<a href="<?php echo get_permalink() ?>" rel="bookmark">	
+				<a href="<?php echo esc_url( get_permalink() )  ?>" rel="bookmark">	
 					<?php the_title()?>
 				</a>
 			</h2>
@@ -35,7 +35,7 @@
 		<div class="entry-content"> <!--excerpt & read more-->
 			<?php the_excerpt()  ?>
 		</div><!-- .entry-content -->
-		<a href="<?php esc_url( get_permalink() ) ?>" rel="bookmark" class="read-more">	
+		<a href="<?php echo esc_url( get_permalink() ) ?>" rel="bookmark" class="read-more">	
 			<?php _e('Read more', 'eats')?>
 			<span class="screen-reader-text"><?php _e('about ', 'eats'); the_title()?> </span>
 			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z"/></svg>
