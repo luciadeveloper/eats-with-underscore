@@ -480,7 +480,6 @@ a:focus,
   width: 100%;
 }
 .main-navigation ul {
-  display: none;
   list-style: none;
   margin: 0;
   padding-left: 0;
@@ -518,10 +517,6 @@ a:focus,
   text-decoration: none;
 }
 /* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-  display: block;
-}
 @media screen and (min-width: 37.5em) {
   .menu-toggle {
     display: none;
@@ -938,7 +933,6 @@ h2 {
   display: flex;
   width: 55px;
   height: 40px;
-  margin-right: 10px;
 }
 .site-header .site-branding .site-title svg * {
   fill: #fff;
@@ -953,6 +947,18 @@ h2 {
 }
 .site-header .main-navigation .container {
   padding: 0;
+  line-height: 0;
+}
+.site-header .main-navigation ul {
+  -webkit-transition-duration: 0.8s;
+       -o-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+  height: auto;
+  max-height: 0;
+  overflow: hidden;
+}
+.site-header .main-navigation.toggled ul {
+  max-height: 100vh;
 }
 .site-header .main-navigation li a {
   border: 3px dotted transparent;
@@ -977,14 +983,15 @@ h2 {
   background-color: #013371;
 }
 .site-header .main-navigation .menu-toggle {
-  border: 3px dotted transparent;
+  border: none;
   background-color: #006EF5;
-  padding: 27px;
+  width: 60px;
+  height: 60px;
+  padding: 0;
   position: relative;
-}
-.site-header .main-navigation .menu-toggle:focus {
-  border-color: #FFC700;
-  outline: none;
+  -webkit-transition: background-color 0.4s;
+  -o-transition: background-color 0.4s;
+  transition: background-color 0.4s;
 }
 .site-header .main-navigation .menu-toggle svg {
   fill: #fff;
@@ -1080,6 +1087,9 @@ h2 {
             flex: 1 0 0;
     width: 100%;
   }
+  .site-header .site-branding .site-title svg {
+    margin-right: 10px;
+  }
   .site-header .site-branding .site-title .title {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1090,6 +1100,9 @@ h2 {
   }
   .site-header .main-navigation .container {
     padding: 0 20px;
+  }
+  .site-header .main-navigation .container ul {
+    max-height: 100vh;
   }
   .site-header .main-navigation .container li {
     border-bottom: none;
