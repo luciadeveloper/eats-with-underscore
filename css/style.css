@@ -766,6 +766,14 @@ object {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  border: 4px dashed transparent;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.blog article a.read-more:focus {
+  border-color: #CC4B00;
+  outline: none;
 }
 .blog article a.read-more svg {
   fill: #CC4B00;
@@ -779,16 +787,19 @@ object {
   -o-transition: margin-left 0.2s;
   transition: margin-left 0.2s;
 }
-.blog article .entry-title a:hover {
-  text-decoration: none;
-}
 .blog article .article-image-wrapper a {
   line-height: 0;
 }
 .blog article .article-image-wrapper a:hover img {
   opacity: 0.95;
 }
-.blog article .entry-meta time {
+.blog article .article-content-wrapper .entry-header {
+  margin-top: 10px;
+}
+.blog article .article-content-wrapper .entry-title a:hover {
+  text-decoration: none;
+}
+.blog article .article-content-wrapper .entry-meta time {
   color: #767676;
   margin-bottom: 5px;
   display: block;
@@ -817,11 +828,39 @@ object {
         -ms-flex-positive: 2;
             flex-grow: 2;
   }
+  .blog article .article-image-wrapper a {
+    height: 100%;
+  }
+  .blog article .article-image-wrapper a picture {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: left;
+        -ms-flex-pack: left;
+            justify-content: left;
+    position: relative;
+    height: 100%;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    min-height: 380px;
+  }
+  .blog article .article-image-wrapper a picture img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+  }
   .blog article .article-content-wrapper {
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
             flex-grow: 1;
-    padding: 20px;
+    padding: 0 20px;
   }
 }
 @font-face {
@@ -858,6 +897,7 @@ h2 {
 }
 .main-navigation a {
   font-size: 1.28em;
+  line-height: 1.15em;
 }
 .site-header a {
   color: #fff;
@@ -904,8 +944,13 @@ h2 {
   padding: 0;
 }
 .site-header .main-navigation li a {
-  padding: 15px 20px;
+  padding: 20px;
   text-decoration: underline;
+  border: 4px dashed transparent;
+}
+.site-header .main-navigation li a:focus {
+  border-color: #CC4B00;
+  outline: none;
 }
 .site-header .main-navigation li.current-menu-item a,
 .site-header .main-navigation li:hover a {
@@ -955,7 +1000,7 @@ h2 {
 @media only screen and (min-width: 600px) {
   .site-header .site-branding {
     position: relative;
-    padding: 8px 0;
+    padding: 10px 0;
   }
   .site-header .site-branding .site-title {
     text-align: left;

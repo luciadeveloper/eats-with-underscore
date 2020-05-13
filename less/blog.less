@@ -8,6 +8,12 @@
        
             &.read-more {
                 display: flex;
+                border:4px dashed transparent;
+                width: fit-content;
+                &:focus {
+                    border-color:@secondary;
+                    outline:none;
+                }
        
                 svg {
                     fill:@secondary;
@@ -19,13 +25,10 @@
                     transition: margin-left 0.2s;
                 }
             }
-
            
         }
 
-        .entry-title a:hover {
-            text-decoration: none;
-        }
+      
         .article-image-wrapper {
            
             a {
@@ -37,14 +40,26 @@
             }
         }
 
-        .entry-meta {
-           
-            time {
-                color: @gray;
-                margin-bottom: 5px;
-                display: block;
+        .article-content-wrapper {
+        
+            .entry-header {
+                margin-top: 10px;
+            }
+
+            .entry-title a:hover {
+                text-decoration: none;
+            }
+
+            .entry-meta {
+            
+                time {
+                    color: @gray;
+                    margin-bottom: 5px;
+                    display: block;
+                }
             }
         }
+        
     }
 }
 
@@ -65,11 +80,36 @@
             
             .article-image-wrapper {
                 flex-grow: 2;
+                a {
+                    height: 100%;
+                
+                    picture {
+                    
+                        display: flex;
+                        justify-content: left;
+                        position: relative;
+                        height: 100%;
+                        align-items: flex-start;
+                        min-height:380px;
+                    
+                        img {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            height: 100%;
+                            width: 100%;
+                            object-fit: cover;
+                            object-position: center;
+                        }
+                    }
+                }
             }
             
             .article-content-wrapper {
                 flex-grow: 1;
-                padding:20px;
+                padding:0 20px;
+               
+               
             }
            
             

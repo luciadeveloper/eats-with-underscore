@@ -4,7 +4,6 @@
     }
 
     .site-branding {
-
         position: absolute;
         width: 100%;
         padding: 10px 0;
@@ -24,6 +23,7 @@
             
             svg {
                 display:flex;
+               
                 * {
                     fill:@white;
                     transform: scale(0.75);
@@ -46,19 +46,26 @@
         }
 
         li {
+           
             a {
-                padding: 15px 20px;
+                padding: 20px;
                 text-decoration: underline;
-                
+                border:4px dashed transparent;
+                &:focus {
+                    border-color:@secondary;
+                    outline:none;
+                }
             }
 
             &.current-menu-item, &:hover {
+               
                 a {
                     transition: color 0.4s;
                     color:@hightlight;
                    
                 }
             }
+           
             &:hover a {
                 text-decoration: none;
             }
@@ -93,6 +100,7 @@
             width: 100%;
             background-color: @blue;
             border-bottom: 1px solid @white;
+            
             &:first-child a {
                 padding-left: 20px;
             }
@@ -128,7 +136,7 @@
 
         .site-branding {
             position: relative;
-            padding: 8px 0;
+            padding: 10px 0;
 
             .site-title {
                 text-align: left;
