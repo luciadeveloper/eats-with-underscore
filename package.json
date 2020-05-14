@@ -15,7 +15,9 @@
     "less-watch-compiler": "^1.14.6",
     "path": "^0.12.7"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp-clean-css": "^4.3.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

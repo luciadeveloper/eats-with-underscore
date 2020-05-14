@@ -3,6 +3,8 @@ var less = require('gulp-less');
 var path = require('path');
 var gulp = require('gulp');
 var autoprefixer = require('gulp-autoprefixer');
+var cleanCSS = require('gulp-clean-css');
+
 
 gulp.task('less', function () {
   return gulp.src('./less/style.less')
@@ -18,3 +20,12 @@ gulp.task('watch', function() {
 });
 
 gulp.task('default', ['less', 'watch']);
+ 
+gulp.task('minify-css', () => {
+  return gulp.src('css/*.css')
+    .pipe(cleanCSS({debug: true}, (details) => {
+      console.log(`${details.name}: ${details.stats.originalSize}`);
+      console.log(`${details.name}: ${details.stats.minifiedSize}`);
+    }))
+  .pipe(gulp.dest('css/min'));
+});
