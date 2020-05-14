@@ -7,7 +7,6 @@
             color:@secondary;
        
             &.read-more {
-                .focus-border();
                 display: flex;
                 width: fit-content;
               
@@ -33,11 +32,11 @@
             a {
                 line-height: 0;
                 display:block;
-                .focus-border;
-        
+                
                 &:focus {
                     .special-focus(@secondary)  
                 }
+         
                 &:hover img {
                     opacity: 0.95;
                 }
@@ -52,8 +51,7 @@
                 .entry-title {
                     a {
                         display: block;
-                        .focus-border;
-            
+                        
                         &:focus {
                             .special-focus(@secondary)  
                         }
