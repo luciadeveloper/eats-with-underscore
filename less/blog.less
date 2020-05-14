@@ -12,8 +12,7 @@
                 width: fit-content;
               
                 &:focus {
-                    border-color:@secondary;
-                    outline:none;
+                    .special-focus(@secondary)  
                 }
        
                 svg {
@@ -33,7 +32,12 @@
            
             a {
                 line-height: 0;
-           
+                display:block;
+                .focus-border;
+        
+                &:focus {
+                    .special-focus(@secondary)  
+                }
                 &:hover img {
                     opacity: 0.95;
                 }
@@ -44,18 +48,28 @@
         
             .entry-header {
                 margin-top: 10px;
-            }
-
-            .entry-title a:hover {
-                text-decoration: none;
-            }
-
-            .entry-meta {
             
-                time {
-                    color: @gray;
-                    display: block;
-                    margin-bottom: 5px;
+                .entry-title {
+                    a {
+                        display: block;
+                        .focus-border;
+            
+                        &:focus {
+                            .special-focus(@secondary)  
+                        }
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
+                }
+
+                .entry-meta {
+                
+                    time {
+                        color: @gray;
+                        display: block;
+                        margin-bottom: 5px;
+                    }
                 }
             }
         }

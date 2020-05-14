@@ -5,14 +5,15 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	var container, button, menu, links, i, len;
+	var container, button, menu, links, i, len, header;
 
+	header = document.getElementById( 'masthead' );
 	container = document.getElementById( 'site-navigation' );
 	if ( ! container ) {
 		return;
 	}
 
-	button = container.getElementsByTagName( 'button' )[0];
+	button = document.getElementById( 'menu-toggle' );
 	if ( 'undefined' === typeof button ) {
 		return;
 	}
@@ -30,24 +31,43 @@
 	}
 
 	button.onclick = function() {
-		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
-			container.className = container.className.replace( ' toggled', '' );
-			button.setAttribute( 'aria-expanded', 'false' );
+		if ( -1 !== header.className.indexOf( 'toggled' ) ) {
+			closeMenu();
+
 		} else {
-			container.className += ' toggled';
-			button.setAttribute( 'aria-expanded', 'true' );
+			openMenu()
 		}
 	};
 
 	// Close small menu when user clicks outside
 	document.addEventListener( 'click', function( event ) {
 		var isClickInside = container.contains( event.target );
+		var isClickInsideButton = button.contains( event.target );
 
-		if ( ! isClickInside ) {
-			container.className = container.className.replace( ' toggled', '' );
-			button.setAttribute( 'aria-expanded', 'false' );
+		if ( ! isClickInside && !isClickInsideButton) {
+			closeMenu();
 		}
 	} );
+
+	//close menu when Esc key is pressed. 
+
+	document.addEventListener('keyup', (event) => {
+		if(event.keyCode == 27) {
+			closeMenu(); 
+		}
+	});
+
+	function closeMenu() {
+		header.classList.remove('toggled');	
+		button.setAttribute( 'aria-expanded', 'false' );
+		container.setAttribute( 'aria-expanded', 'false' );	
+	} 
+
+	function openMenu() {
+		header.className += ' toggled';
+		button.setAttribute( 'aria-expanded', 'true' );
+		container.setAttribute( 'aria-expanded', 'true' );
+	} 
 
 	// Get all the link elements within the menu.
 	links = menu.getElementsByTagName( 'a' );
@@ -112,10 +132,3 @@
 }() );
 
 
-//close menu when Esc key is pressed. 
-
-document.addEventListener('keyup', (event) => {
-	if(event.keyCode == 27) {
-		document.getElementById('site-navigation').classList.remove('toggled');
-	}
-});

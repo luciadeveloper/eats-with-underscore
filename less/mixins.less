@@ -1,8 +1,10 @@
 .focus-border {
-    border:3px dotted transparent;
+    //outline: none;
+   // border:@border dotted transparent;
+   
 }
 
-.special-focus {
-    border-color:@hightlight;
-    outline:none;
+.special-focus(@color) {
+    outline: 3px dotted @color;
 }
+
